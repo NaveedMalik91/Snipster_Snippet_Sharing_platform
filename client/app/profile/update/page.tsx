@@ -19,6 +19,7 @@ function Page() {
       setNewPassword(e.target.value);
     }
   };
+  
 
   return (
     <main className="min-h-screen flex justify-center items-start pt-16 pb-10 bg-[#0f1115]">
@@ -59,7 +60,7 @@ function Page() {
                 id="github"
                 name="github"
                 type="text"
-                defaultValue={user?.github}
+                value={userState.github || ""}
                 onChange={(e) => handlerUserInput("github")(e)}
                 placeholder="Github"
                 className="w-full py-[.8rem] pl-[3.2rem] pr-[1rem] bg-transparent border-2 border-rgba-2 rounded-md text-gray-200 outline-none focus:border-[#6fcf97]"
@@ -75,7 +76,7 @@ function Page() {
                 id="linkedin"
                 name="linkedin"
                 type="text"
-                defaultValue={user?.linkedin}
+                value={userState.linkedin || ""} 
                 onChange={(e) => handlerUserInput("linkedin")(e)}
                 placeholder="LinkedIn"
                 className="w-full py-[.8rem] pl-[3.2rem] pr-[1rem] bg-transparent border-2 border-rgba-2 rounded-md text-gray-200 outline-none focus:border-[#6fcf97]"
@@ -91,7 +92,7 @@ function Page() {
                 id="publicEmail"
                 name="publicEmail"
                 type="email"
-                defaultValue={user?.publicEmail}
+                value={userState.publicEmail || ""}
                 onChange={(e) => handlerUserInput("publicEmail")(e)}
                 placeholder="Public Email"
                 className="w-full py-[.8rem] pl-[3.2rem] pr-[1rem] bg-transparent border-2 border-rgba-2 rounded-md text-gray-200 outline-none focus:border-[#6fcf97]"
@@ -110,7 +111,7 @@ function Page() {
               type="text"
               id="name"
               name="name"
-              value={userState.name || ""}
+              value={userState.name ||user.name|| ""}
               onChange={(e) => handlerUserInput("name")(e)}
               className="w-full py-[.8rem] pl-4 pr-1 bg-transparent border-2 border-rgba-2 rounded-md text-gray-200 outline-none focus:border-[#6fcf97]"
             />
