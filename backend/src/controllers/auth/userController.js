@@ -353,7 +353,7 @@ export const forgotPassword = asyncHandler(async (req, res) => {
   const resetLink = `${process.env.CLIENT_URL}/reset-password/${passwordResetToken}`;
 
   // send email to user
-  const subject = "Password Reset - AuthKit";
+  const subject = "Password Reset - Snipster: Your Snippet Hub";
   const send_to = user.email;
   const send_from = process.env.USER_EMAIL;
   const reply_to = "noreply@noreply.com";

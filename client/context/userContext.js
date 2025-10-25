@@ -9,7 +9,8 @@ const UserContext = React.createContext();
 axios.defaults.withCredentials = true;
 
 export const UserContextProvider = ({ children }) => {
-  const serverUrl = "http://localhost:8000";
+  
+const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8000/api/v1";
 
   const router = useRouter();
 
@@ -35,7 +36,7 @@ export const UserContextProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.post(`${serverUrl}/api/v1/register`, userState);
+      const res = await axios.post(`${serverUrl}/register`, userState);
       console.log("User registered successfully", res.data);
       toast.success("User registered successfully");
 
@@ -59,7 +60,7 @@ export const UserContextProvider = ({ children }) => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `${serverUrl}/api/v1/login`,
+        `${serverUrl}/login`,
         {
           email: userState.email,
           password: userState.password,
@@ -92,7 +93,7 @@ export const UserContextProvider = ({ children }) => {
   const userLoginStatus = async () => {
     let loggedIn = false;
     try {
-      const res = await axios.get(`${serverUrl}/api/v1/login-status`, {
+      const res = await axios.get(`${serverUrl}/login-status`, {
         withCredentials: true, // send cookies to the server
       });
 
@@ -113,7 +114,7 @@ export const UserContextProvider = ({ children }) => {
   // logout user
   const logoutUser = async () => {
     try {
-      const res = await axios.get(`${serverUrl}/api/v1/logout`, {
+      const res = await axios.get(`${serverUrl}/logout`, {
         withCredentials: true, // send cookies to the server
       });
 
@@ -131,7 +132,7 @@ export const UserContextProvider = ({ children }) => {
   const getUser = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`${serverUrl}/api/v1/user`, {
+      const res = await axios.get(`${serverUrl}/user`, {
         withCredentials: true, // send cookies to the server
       });
 
@@ -154,7 +155,7 @@ export const UserContextProvider = ({ children }) => {
   const getUserById = async (id) => {
     setLoading(true);
     try {
-      const res = await axios.get(`${serverUrl}/api/v1/user/${id}`, {
+      const res = await axios.get(`${serverUrl}/user/${id}`, {
         withCredentials: true,
       });
 
@@ -169,7 +170,7 @@ export const UserContextProvider = ({ children }) => {
     setLoading(true);
 
     try {
-      const res = await axios.patch(`${serverUrl}/api/v1/user`, data, {
+      const res = await axios.patch(`${serverUrl}/user`, data, {
         withCredentials: true, // send cookies to the server
       });
 
@@ -196,7 +197,7 @@ export const UserContextProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${serverUrl}/api/v1/verify-email`,
+        `${serverUrl}/verify-email`,
         {},
         {
           withCredentials: true, // send cookies to the server
@@ -217,7 +218,7 @@ export const UserContextProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await axios.post(
-        `${serverUrl}/api/v1/verify-user/${token}`,
+        `${serverUrl}/verify-user/${token}`,
         {},
         {
           withCredentials: true, // send cookies to the server
@@ -245,7 +246,7 @@ export const UserContextProvider = ({ children }) => {
 
     try {
       const res = await axios.post(
-        `${serverUrl}/api/v1/forgot-password`,
+        `${serverUrl}/forgot-password`,
         {
           email,
         },
@@ -269,7 +270,7 @@ export const UserContextProvider = ({ children }) => {
 
     try {
       const res = await axios.post(
-        `${serverUrl}/api/v1/reset-password/${token}`,
+        `${serverUrl}/reset-password/${token}`,
         {
           password,
         },
@@ -295,7 +296,7 @@ export const UserContextProvider = ({ children }) => {
 
     try {
       const res = await axios.patch(
-        `${serverUrl}/api/v1/change-password`,
+        `${serverUrl}/change-password`,
         { currentPassword, newPassword },
         {
           withCredentials: true, // send cookies to the server
@@ -316,7 +317,7 @@ export const UserContextProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await axios.get(
-        `${serverUrl}/api/v1/admin/users`,
+        `${serverUrl}/admin/users`,
         {},
         {
           withCredentials: true, // send cookies to the server
@@ -347,7 +348,7 @@ export const UserContextProvider = ({ children }) => {
     setLoading(true);
     try {
       const res = await axios.delete(
-        `${serverUrl}/api/v1/admin/users/${id}`,
+        `${serverUrl}/admin/users/${id}`,
         {},
         {
           withCredentials: true, // send cookies to the server
