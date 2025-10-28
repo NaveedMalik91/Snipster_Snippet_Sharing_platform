@@ -8,43 +8,6 @@
 
 Snipster is a modern web application for **sharing code snippets**. It enables users to register, authenticate, create, update, bookmark, and manage favorite code snippets with support for tagging, searching, user profiles, leaderboards, and more. Built using a robust full-stack architecture with **Next.js/React/TypeScript** frontend and **Node.js/Express/MongoDB** backend.
 
----
-
-## 📂 Repository Structure
-
-
-├── backend/
-│ ├── src/
-│ │ ├── controllers/
-│ │ │ ├── auth/
-│ │ │ ├── snippets/
-│ │ │ ├── tags/
-│ │ ├── db/
-│ │ ├── helpers/
-│ │ ├── middleware/
-│ │ ├── models/
-│ │ │ ├── auth/
-│ │ │ ├── snippets/
-│ │ │ ├── tags/
-│ │ ├── routes/
-│ │ ├── views/
-│ ├── server.js
-│ ├── package.json
-├── client/
-│ ├── app/
-│ ├── components/
-│ ├── context/
-│ ├── hooks/
-│ ├── lib/
-│ ├── providers/
-│ ├── public/
-│ ├── types/
-│ ├── utils/
-│ ├── package.json
-├── README.md
-
-
----
 
 ## 🚀 Features
 
@@ -102,11 +65,11 @@ npm install
 #### 3. Environment Variables
 
 - Backend requires a `.env` file:
-MONGO_URI=your_mongo_db_uri
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_password
-FRONTEND_URL=http://localhost:3000
+- MONGO_URI=your_mongo_db_uri
+-JWT_SECRET=your_jwt_secret
+  EMAIL_USER=your_email
+-EMAIL_PASS=your_email_password
+-FRONTEND_URL=http://localhost:3000
 
 - Client may require `NEXT_PUBLIC_API_URL` pointing to your backend in backend .env file
 
