@@ -64,12 +64,12 @@ npm install
 
 #### 3. Environment Variables
 
-- Backend requires a `.env` file:
-- MONGO_URI=your_mongo_db_uri
--JWT_SECRET=your_jwt_secret
-  EMAIL_USER=your_email
--EMAIL_PASS=your_email_password
--FRONTEND_URL=http://localhost:3000
+- **Backend requires a `.env` file**:
+  -MONGO_URI=your_mongo_db_uri
+  -JWT_SECRET=your_jwt_secret
+  -EMAIL_USER=your_email
+  -EMAIL_PASS=your_email_password
+  -FRONTEND_URL=http://localhost:3000
 
 - Client may require `NEXT_PUBLIC_API_URL` pointing to your backend in backend .env file
 
